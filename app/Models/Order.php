@@ -34,6 +34,11 @@ class Order extends Model
         'draft' => 'boolean',
     ];
 
+    protected $attributes = [
+        'status' => false,
+        'draft' => true,
+    ];
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
