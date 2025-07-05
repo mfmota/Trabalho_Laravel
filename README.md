@@ -21,6 +21,27 @@ O público-alvo são desenvolvedores que irão construir ou manter a interface d
 -   **Fluxo de Pedidos**: Sistema completo para criação, adição e remoção de itens, envio para preparo e finalização de pedidos.
 -   **Testes Automatizados**: Suíte de testes de feature e unitários para garantir a estabilidade e o correto funcionamento da API.
 
+## 📚 Endpoints da API
+
+Abaixo estão os principais endpoints disponíveis. Todas as rotas (exceto `/login`) exigem um token de autenticação no cabeçalho `Authorization: Bearer <seu_token>`.
+
+| Método HTTP | Endpoint                               | Descrição                                 |
+| :---------- | :------------------------------------- | :---------------------------------------- |
+| `POST`      | `/login`                               | Realiza o login e retorna um token de acesso. |
+| `POST`      | `/logout`                              | Invalida o token de acesso do usuário.    |
+| `POST`      | `/users`                               | Cria um novo usuário.                     |
+| `GET`       | `/api/categories`                      | Lista todas as categorias.                |
+| `POST`      | `/api/categories`                      | Cria uma nova categoria.                  |
+| `GET`       | `/api/products`                        | Lista todos os produtos (pode filtrar por `category_id`). |
+| `POST`      | `/api/products`                        | Cria um novo produto (usa `multipart/form-data`). |
+| `DELETE`    | `/api/products/{id}`                   | Deleta um produto.                        |
+| `POST`      | `/api/orders`                          | Cria um novo pedido (em modo rascunho).   |
+| `GET`       | `/api/orders/{id}`                     | Exibe os detalhes de um pedido.           |
+| `POST`      | `/api/orders/{id}/items`               | Adiciona um item a um pedido.             |
+| `DELETE`    | `/api/orders/{id}/items/{item_id}`     | Remove um item de um pedido.              |
+| `PUT`       | `/api/orders/{id}/send`                | Envia o pedido para a cozinha.            |
+| `PUT`       | `/api/orders/{id}/finish`              | Finaliza o pedido.                        |
+
 ## 🚀 Tecnologias Utilizadas
 
 -   **PHP 8.2+**
