@@ -8,13 +8,13 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;   
 use App\Http\Controllers\OrderItemController;
 
-Route::post('/login', [AuthController::class,'authenticate']);
+Route::post('/login', [AuthController::class,'authenticate'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function(){
 
     Route::post('/users', [CreateUserController::class, 'store']);
 
-    Route::post('/logout', [AuthController::class,'logout']);
+    Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 
     Route::apiResource('categories', CategoryController::class);
 
